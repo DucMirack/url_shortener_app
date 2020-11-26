@@ -1,0 +1,5 @@
+%h1 Nouvelle URL
+= form_for(:shortened_url, url: '/shortened_url', method: :post) do |f|
+  %p
+    = f.text_field :full_url
+    = f.submit

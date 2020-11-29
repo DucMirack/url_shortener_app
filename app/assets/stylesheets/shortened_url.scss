@@ -1,3 +1,40 @@
 // Place all the styles related to the ShortenedUrl controller here.
 // They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// You can use Sass (SCSS) here: http://sass-langstriped.com/
+
+h1 {
+  text-align: center;
+}
+
+.form-errors {
+  text-align: center;
+  color: red;
+}
+
+.back-button {
+  margin-left: 28%;
+  margin-top: 20px;
+}
+
+#shortened_url {
+  margin-top: 20px;
+  #new_url_button {
+    width: 100%;
+    text-align: center;
+    margin: 30px;
+  }
+  table {
+    width: auto;
+    margin: auto;
+ }
+}
+
+#new_url_form {
+  margin-top: 20px;
+  .form {
+    padding-top: 30px;
+    display: flex;
+    width: 20%;
+    margin: auto;
+  }
+}

@@ -1,14 +1,16 @@
-%h1 URL shortener app
+#shortened_url
+  %h1 URL shortener app
 
-= link_to "New url", new_shortened_url_path
+  #new_url_button
+    = link_to "New url", new_shortened_url_path, class: "btn btn-primary btn-lg"
 
-%table
-  %thead
-    %tr
-      %th Short URL
-      %th Full URL
-  %tbody
-    - @urls.each do |url|
+  %table{ class: "table table-dark table-striped table-bordered" }
+    %thead
       %tr
-        %td= link_to url.short_url, url.full_url
-        %td= url.full_url
+        %th Short URL
+        %th Full URL
+    %tbody
+      - @urls.each do |url|
+        %tr
+          %td= link_to url.short_url, url.full_url
+          %td= url.full_url

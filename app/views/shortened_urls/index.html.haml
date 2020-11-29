@@ -4,13 +4,19 @@
   #new_url_button
     = link_to "New url", new_shortened_url_path, class: "btn btn-primary btn-lg"
 
+  - if flash[:notice]
+    .notice
+      = flash[:notice]
+
   %table{ class: "table table-dark table-striped table-bordered" }
     %thead
       %tr
         %th Short URL
         %th Full URL
+        %th Delete
     %tbody
       - @urls.each do |url|
         %tr
           %td= link_to url.short_url, url.full_url
           %td= url.full_url
+          %td= link_to "Delete", url, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-outline-danger'

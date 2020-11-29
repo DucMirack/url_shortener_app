@@ -1,3 +1,4 @@
+= flash[:error].values.flatten.to_sentence if flash[:error]
 = form_with(model: url, local: true) do |f|
   %p
     = f.text_field :full_url

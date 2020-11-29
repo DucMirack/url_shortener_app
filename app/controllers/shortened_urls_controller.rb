@@ -8,8 +8,12 @@ class ShortenedUrlsController < ApplicationController
   end
 
   def create
-    shortened_url = ShortenedUrl.create!(permitted_params)
-    redirect_to shortened_urls_path
+    url = ShortenedUrl.new(permitted_params)
+    if url.save
+      redirect_to shortened_urls_path
+    else
+      redirect_to new_shortened_url_path, flash: { error: url.errors }
+    end
   end
 
   private def permitted_params

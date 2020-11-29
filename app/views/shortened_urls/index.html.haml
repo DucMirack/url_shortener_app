@@ -1,3 +1,14 @@
 %h1 URL shortener app
 
 = link_to "New url", new_shortened_url_path
+
+%table
+  %thead
+    %tr
+      %th Short URL
+      %th Full URL
+  %tbody
+    - @urls.each do |url|
+      %tr
+        %td= link_to url.short_url, url.full_url
+        %td= url.full_url

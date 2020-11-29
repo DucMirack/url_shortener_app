@@ -1,5 +1,6 @@
 class ShortenedUrlsController < ApplicationController
   def index
+    @urls = ShortenedUrl.all
   end
 
   def new

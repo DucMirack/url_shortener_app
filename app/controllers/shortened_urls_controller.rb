@@ -21,6 +21,12 @@ class ShortenedUrlsController < ApplicationController
     redirect_to shortened_urls_path, notice: 'Url was successfully destroyed.'
   end
 
+  def visit_full_url
+    url = ShortenedUrl.find(params[:id])
+    UrlVisit.create!(shortened_url_id: url.id)
+    redirect_to url.full_url
+  end
+
   private def permitted_params
     params.require(:shortened_url).permit(:full_url)
   end

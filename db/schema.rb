@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 2020_11_26_181912) do
   enable_extension "plpgsql"
 
   create_table "shortened_urls", force: :cascade do |t|
-    t.string "key"
-    t.string "full_url"
+    t.string "key", null: false
+    t.string "full_url", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

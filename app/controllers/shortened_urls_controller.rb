@@ -16,6 +16,7 @@ class ShortenedUrlsController < ApplicationController
                            CAST(
                              EXTRACT(minutes FROM created_at) AS VARCHAR), 2, '0'))")
                   .count
+                  .sort
   end
 
   def new

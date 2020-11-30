@@ -26,7 +26,7 @@ ShortenedUrl.all.each do |url|
   (24*4).times do |hour_index|
     100.times do
       date = Faker::Time.between(from: (current_date + hour_index.hours), to: (current_date + (hour_index + 1).hours))
-      UrlVisit.create!(shortened_url_id: url.id, created_at: date, updated_at: date)
+      UrlVisit.create!(url_id: url.id, created_at: date, updated_at: date)
     end
   end
 end

@@ -1,4 +1,6 @@
 class ShortenedUrlsController < ApplicationController
+  before_action :find_url, only: [:show, :destroy]
+
   def index
     @urls = ShortenedUrl.all
   end
@@ -6,8 +8,7 @@ class ShortenedUrlsController < ApplicationController
   def show
     stop_date = DateTime.now
     start_date = stop_date - 1.hour
-    url = ShortenedUrl.find(params[:id])
-    @visits = url.url_visits.created_between(start_date, stop_date)
+    @visits = @url.url_visits.created_between(start_date, stop_date)
   end
 
   def new
@@ -24,7 +25,7 @@ class ShortenedUrlsController < ApplicationController
   end
 
   def destroy
-    ShortenedUrl.find(params[:id]).destroy
+    @url.destroy
     redirect_to shortened_urls_path, notice: 'Url was successfully destroyed.'
   end
 
@@ -36,5 +37,9 @@ class ShortenedUrlsController < ApplicationController
 
   private def permitted_params
     params.require(:shortened_url).permit(:full_url)
+  end
+
+  private def find_url
+    @url = ShortenedUrl.find(params[:id])
   end
 end

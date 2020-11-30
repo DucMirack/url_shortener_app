@@ -1,6 +1,5 @@
 class ShortenedUrl < ApplicationRecord
 
-  BASE_URL = "http://recordit.co/"
   URL_KEY_LENGTH = 10
 
   validates :key, presence: true, uniqueness: true
@@ -15,10 +14,6 @@ class ShortenedUrl < ApplicationRecord
 
   validate do
     errors.add(:full_url, "Cette URL n'existe pas ou n'a pas pu être jointe") if !is_url_regex
-  end
-
-  def short_url
-    BASE_URL + self.key
   end
 
   private def generate_url_key

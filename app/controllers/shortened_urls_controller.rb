@@ -3,6 +3,13 @@ class ShortenedUrlsController < ApplicationController
     @urls = ShortenedUrl.all
   end
 
+  def show
+    stop_date = DateTime.now
+    start_date = stop_date - 1.hour
+    url = ShortenedUrl.find(params[:id])
+    @visits = url.url_visits.created_between(start_date, stop_date)
+  end
+
   def new
     @url = ShortenedUrl.new
   end

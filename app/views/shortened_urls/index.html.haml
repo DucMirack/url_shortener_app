@@ -15,9 +15,11 @@
           %th Short URL
           %th Full URL
           %th Delete
+          %th View statistics chart
       %tbody
         - @urls.each do |url|
           %tr
             %td= link_to url.short_url, url.key
             %td= url.full_url
             %td= link_to "Delete", url, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-outline-danger'
+            %td= link_to "Details", url, class: 'btn btn-sm btn-outline-success'

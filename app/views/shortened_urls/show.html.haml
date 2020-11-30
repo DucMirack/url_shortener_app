@@ -2,7 +2,7 @@
   %h1 URL visit graphic
 
   .chart
-    = line_chart @visits.group("concat(extract(hour from created_at), 'h', extract(minutes from created_at))").count, xtitle: "Minutes", ytitle: "Number of clics", width: "1000px"
+    = line_chart @datas, xtitle: "Minutes", ytitle: "Number of clics", width: "1000px", title: "Clic on url per minute"
 
 .back-button
   = link_to 'Back', shortened_urls_path, class: "btn btn-secondary back-button"

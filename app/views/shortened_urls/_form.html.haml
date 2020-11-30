@@ -2,7 +2,7 @@
 	= flash[:error].values.flatten.to_sentence if flash[:error]
 
 = form_with(model: url, local: true, class: "form") do |f|
-	= f.text_field :full_url, class: "form-control form-control-lg"
+	= f.text_field :full_url, class: "form-control form-control-lg", placeholder: "https://rubyonrails.org/"
 	= f.submit 'Save', class: "btn btn-primary"
 
 .back-button

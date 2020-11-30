@@ -6,7 +6,7 @@ class ShortenedUrl < ApplicationRecord
 
   validates :full_url, presence: true, uniqueness: true
 
-  has_many :url_visits, dependent: :destroy
+  has_many :visits, class_name: 'UrlVisit', dependent: :destroy, foreign_key: :url_id
 
   before_validation do
     self.key = generate_url_key

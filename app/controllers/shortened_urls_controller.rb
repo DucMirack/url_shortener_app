@@ -39,6 +39,7 @@ class ShortenedUrlsController < ApplicationController
 
   def visit_full_url
     url = ShortenedUrl.find_by(key: params[:key])
+    return redirect_to shortened_urls_path, notice: 'Url could not be found.' if url.nil?
     UrlVisit.create!(url: url)
     redirect_to url.full_url
   end
@@ -48,6 +49,6 @@ class ShortenedUrlsController < ApplicationController
   end
 
   private def find_url
-    @url = ShortenedUrl.find(params[:id])
+    @url = ShortenedUrl.find!(params[:id])
   end
 end

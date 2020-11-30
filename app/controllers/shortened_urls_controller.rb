@@ -7,7 +7,7 @@ class ShortenedUrlsController < ApplicationController
 
   def show
     stop_date = DateTime.now
-    start_date = stop_date - 1.hour
+    start_date = 1.hour.ago
     visits = @url.url_visits.created_between(start_date, stop_date)
     @datas = visits.group("CONCAT(
                          EXTRACT(hour FROM created_at),

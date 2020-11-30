@@ -12,7 +12,9 @@ class ShortenedUrlsController < ApplicationController
     @datas = visits.group("CONCAT(
                          EXTRACT(hour FROM created_at),
                          'h',
-                         EXTRACT(minutes FROM created_at))")
+                         LPAD(
+                           CAST(
+                             EXTRACT(minutes FROM created_at) AS VARCHAR), 2, '0'))")
                   .count
   end
 

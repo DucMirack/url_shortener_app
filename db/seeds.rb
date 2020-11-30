@@ -5,3 +5,25 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+#
+
+require 'faker'
+
+# Empty DB
+UrlVisit.delete_all
+ShortenedUrl.delete_all
+
+# Fill DB
+
+# Create shortened_urls
+ShortenedUrl.create!(full_url: "https://wizville.fr/")
+ShortenedUrl.create!(full_url: "https://www.google.com/")
+ShortenedUrl.create!(full_url: "https://www.linguee.fr/")
+
+# Create shortened_urls
+ShortenedUrl.all.each do |url|
+  100.times do |index|
+    date = Faker::Time.between(from: 1.hour.ago, to: DateTime.now)
+    UrlVisit.create!(shortened_url_id: url.id, created_at: date, updated_at: date)
+  end
+end

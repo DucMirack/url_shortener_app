@@ -32,12 +32,17 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-#
+
+# Template engine for HTML
 gem 'haml'
 gem 'haml-rails'
 
+# Front end framework style
 gem 'bootstrap', '~> 5.0.0.alpha3'
 gem 'mini_racer'
+
+# Chart library
+gem 'chartkick'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false

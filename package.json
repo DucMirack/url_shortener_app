@@ -1,5 +1,8 @@
 {
   "name": "url_shortener_app",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "chart.js": "^2.9.4",
+    "chartkick": "^3.2.1"
+  }
 }

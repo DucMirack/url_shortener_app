@@ -49,6 +49,6 @@ class ShortenedUrlsController < ApplicationController
   end
 
   private def find_url
-    @url = ShortenedUrl.find!(params[:id])
+    @url = ShortenedUrl.find_by!(id: params[:id])
   end
 end

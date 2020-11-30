@@ -13,7 +13,7 @@ class ShortenedUrl < ApplicationRecord
   end
 
   validate do
-    errors.add(:full_url, "Cette URL n'existe pas ou n'a pas pu être jointe") if !is_url_regex
+    errors.add(:full_url, "La valeur indiquée ne respecte pas le format d'une URL") if !is_url_regex
   end
 
   private def generate_url_key

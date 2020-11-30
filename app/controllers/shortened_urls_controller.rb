@@ -22,7 +22,7 @@ class ShortenedUrlsController < ApplicationController
   end
 
   def visit_full_url
-    url = ShortenedUrl.find(params[:id])
+    url = ShortenedUrl.find_by(key: params[:key])
     UrlVisit.create!(shortened_url_id: url.id)
     redirect_to url.full_url
   end

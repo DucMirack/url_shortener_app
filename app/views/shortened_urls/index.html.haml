@@ -18,6 +18,6 @@
       %tbody
         - @urls.each do |url|
           %tr
-            %td= link_to url.short_url, visit_full_url_shortened_url_path(url)
+            %td= link_to url.short_url, url.key
             %td= url.full_url
             %td= link_to "Delete", url, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-outline-danger'

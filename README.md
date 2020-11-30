@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app runs on Ruby 2.6.6 and Rails 6.1.0.rc1
 
-Things you may want to cover:
+Run the following commands :
 
-* Ruby version
+```
+git clone https://github.com/DucMirack/url_shortener_app.git
+cd url_shortener_app
+bundle install
+rake db:create db:migrate
+```
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To get datas to work with, run `rake db:seed`

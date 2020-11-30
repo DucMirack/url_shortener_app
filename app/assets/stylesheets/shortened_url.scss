@@ -2,11 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-langstriped.com/
 
-h1 {
-  text-align: center;
-}
-
-td {
+td, h1 {
   text-align: center;
 }
 
@@ -51,4 +47,10 @@ td {
 
 #shortened_url_details {
   margin-top: 20px;
+  .chart {
+    margin-top: 40px;
+    & > div {
+      margin: auto;
+    }
+  }
 }
